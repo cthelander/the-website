@@ -1,20 +1,6 @@
-import { useState } from 'react'
 import './App.css'
+import { Layout } from './components/Layout'
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div>
-      Welcome to project Carly!
-
-
-      <button onClick={() => setCount(count +1 )} >add</button>
-
-      <img src="./Instagram_icon.png"/>
-      {count}
-    </div>
-  )
+export function App() {
+  return <Layout/>
 }
-
-export default App
