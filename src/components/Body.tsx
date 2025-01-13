@@ -30,7 +30,7 @@ export function Body() {
         />
       </Links>
 
-      <a href={resume} download="resume" target='_blank'>
+      <a href={resume} download="CarlyThelanderResume" target='_blank'>
         <button>Download my resume</button>
       </a>
     </>
