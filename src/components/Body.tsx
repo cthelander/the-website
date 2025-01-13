@@ -1,22 +1,39 @@
-// import { useState } from 'react'
 import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
+import { Link } from "./Link";
+import styled from "styled-components";
+import resume from "../assets/ThelanderCarlyResume2024.pdf"
 
+const IconSize = 30
+const IconColor = "#FFF"
+
+const Links = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
 
 export function Body() {
-  // const [count, setCount] = useState(0)
 
   return (
-    <div>
-      <a href='https://www.instagram.com/carlythelander/' target="_blank">
-        <FaInstagram size="30" />
+    <>
+      <Links>
+        <Link
+          href='https://www.instagram.com/carlythelander/'
+          icon={<FaInstagram size={IconSize} color={IconColor} />}
+        />
+        <Link
+          href='https://www.linkedin.com/in/carly-thelander-392904a6/'
+          icon={<FaLinkedin size={IconSize} color={IconColor} />}
+        />
+        <Link
+          href='https://github.com/cthelander'
+          icon={<FaGithub size={IconSize} color={IconColor} />}
+        />
+      </Links>
+
+      <a href={resume} download="resume" target='_blank'>
+        <button>Download my resume</button>
       </a>
-      <a href='https://www.linkedin.com/in/carly-thelander-392904a6/' target="_blank">
-        <FaLinkedin size="30" />
-      </a>
-      <a href='https://github.com/cthelander' target="_blank">
-        <FaGithub size="30" />
-      </a>
-    </div>
+    </>
   )
 }
 
