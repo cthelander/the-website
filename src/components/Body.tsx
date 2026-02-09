@@ -33,6 +33,9 @@ export function Body() {
       <a href={resume} download="CarlyThelanderResume" target='_blank'>
         <button>Download my resume</button>
       </a>
+      <a href={'/'} >
+        <button>Gallery</button>
+      </a>
     </>
   )
 }
