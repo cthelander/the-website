@@ -2,6 +2,7 @@ import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 import { Link } from "./Link";
 import styled from "styled-components";
 import resume from "../assets/ThelanderCarlyResume2024.pdf"
+import { NavLink } from "react-router";
 
 const IconSize = 30
 const IconColor = "#FFF"
@@ -33,9 +34,9 @@ export function Body() {
       <a href={resume} download="CarlyThelanderResume" target='_blank'>
         <button>Download my resume</button>
       </a>
-      <a href={'/'} >
-        <button>Gallery</button>
-      </a>
+      <NavLink to="/Gallery" end>
+        Gallery
+      </NavLink>
     </>
   )
 }
