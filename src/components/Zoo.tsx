@@ -1,40 +1,36 @@
 import styled from "styled-components";
-import { FRIENDS } from "./FRIENDS";
 import { useState } from "react";
+import { Animals } from "./Animals";
+import { Friends, FRIENDS } from "./Friends";
+
 
 const ZooContainer = styled.div`
-
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 `
 const SectionContainer = styled.div`
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 6px 6px 0 6px;
-  &:hover {
-    border-color: #646cff;
-  }
-`
-const AnimalContainer = styled.div`
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 6px 6px 0 6px;
+  padding: 0 20px;
   &:hover {
     border-color: #646cff;
   }
 `
 
 export function Zoo() {
-  const sections = FRIENDS.reduce((acc, friend) => {
+  const sections = Friends.reduce((acc, friend) => {
     if (!acc[friend.section]) {
       acc[friend.section] = [];
     }
     acc[friend.section].push(friend);
     return acc;
-  }, {} as Record<string, typeof FRIENDS>);
+  }, {} as Record<string, FRIENDS>);
   //make state to track which sections are open
   const [openSections, setOpenSections] = useState<Set<string>>(new Set());
   return (
     <ZooContainer >
-      {Object.entries(sections).map(([section, friends]) => (
+      {Object.entries(sections).map(([section, sectionFriends]) => (
         <div>
           <SectionContainer
             key={section}
@@ -53,13 +49,7 @@ export function Zoo() {
           >
             <h2>{section}</h2>
           </SectionContainer>
-          {openSections.has(section) && friends.map((friend) => (
-            <AnimalContainer key={friend.name}>
-              <h3>{friend.animal}: {friend.name}</h3>
-              <p>Birthday: {friend.Birthday}</p>
-              <p>Info: {friend.info}</p>
-            </AnimalContainer>
-          ))}
+          {openSections.has(section) && <Animals friends={sectionFriends} />}
         </div>
       ))}
     </ZooContainer>
