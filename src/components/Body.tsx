@@ -34,8 +34,8 @@ export function Body() {
       <a href={resume} download="CarlyThelanderResume" target='_blank'>
         <button>Download my resume</button>
       </a>
-      <NavLink to="/Gallery" end>
-        Gallery
+      <NavLink to="/Zoo" end>
+        Zoo Friends
       </NavLink>
     </>
   )
